@@ -1,25 +1,17 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import {
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-} from '@mui/material';
+import { Box, Toolbar, IconButton, Typography, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import AssetSearch from 'src/components/shared/AssetSearch';
+import AssetList from 'src/components/shared/AssetList';
 
 import AppBar from './mainLayout/AppBar';
 import Drawer from './mainLayout/Drawer';
 import DrawerHeader from './mainLayout/DrawerHeader';
-import AssetList from 'src/components/shared/AssetList';
+import PageLinearLoader from 'src/components/shared/PageLinearLoader';
 
 type Props = {
   children: React.ReactNode;
@@ -72,9 +64,14 @@ export default function MainLayout({ children }: Props) {
         <Divider />
         <AssetList />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ height: '100vh', width: '100%' }}>
         <DrawerHeader />
-        {children}
+        <Box component="main" sx={{ height: '100%', position: 'relative' }}>
+          <PageLinearLoader />
+          <Box component="main" sx={{ height: '100%', p: 2 }}>
+            {children}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

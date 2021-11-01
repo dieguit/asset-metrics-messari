@@ -28,6 +28,7 @@ const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
   width: DRAWER_WIDTH,
+  height: '100vh',
   flexShrink: 0,
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
