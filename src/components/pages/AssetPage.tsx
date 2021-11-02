@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import { SizeMe } from 'react-sizeme';
 import AssetMetrics from './assetPage/AssetMetrics';
 import { Time } from 'lightweight-charts';
+import { useAsset } from 'src/hooks';
 
 const TradingViewChart = dynamic(() => import('../shared/TradingViewChart'), {
   ssr: false,
@@ -16,7 +17,9 @@ const TradingViewChart = dynamic(() => import('../shared/TradingViewChart'), {
 type Props = {
   asset: AssetInfo;
 };
-const AssetPage = ({ asset }: Props) => {
+const AssetPage = ({ asset: ssrAsset }: Props) => {
+  const { asset } = useAsset(ssrAsset);
+
   const priceChange = asset.metrics.market_data
     ?.percent_change_usd_last_24_hours as number;
   const priceIncreased = priceChange > 0;

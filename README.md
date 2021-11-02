@@ -65,6 +65,7 @@ This is very basic feature-wise, a few things that could be added to consider th
 
 - Mocking/Testing the graph.
 - Data polling: I added a `useInterval` to refetch the query every X seconds, but the API limits the calls so polling would consume that quickly.
+  - If you want to see polling in action, enable it in `src/hooks/useAsset.ts#L19`
 - Searching in the left bar. API does not support searches, I saw Messari uses GraphQL for searching assets, but I thought it is out of scope for this exercise.
 - Responsiveness: I made this desktop-only for simplicity.
 - Better Metrics display: Only showed a few metrics, and they are in a modal (probably not good if user needs to access some data quickly)
