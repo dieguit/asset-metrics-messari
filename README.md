@@ -61,9 +61,11 @@ Due to time constraints, I only created some tests for the list and the asset pa
 
 ### Other features considered / Gotchas
 
-This is very basic feature-wise, a few things that could be added to consider this "prod-ready":
+This is very basic feature-wise, a few things that could be added to consider this "prod-ready" but I considered out of scope for the time being:
 
 - Mocking/Testing the graph.
+- Allowing the user to select intervals (it's using daily now), and adjust time range with visible range in graph.
+- Display other metrics in time series (it's displaying only price now)
 - Data polling: I added a `useInterval` to refetch the query every X seconds, but the API limits the calls so polling would consume that quickly.
   - If you want to see polling in action, enable it in `src/hooks/useAsset.ts#L19`
 - Searching in the left bar. API does not support searches, I saw Messari uses GraphQL for searching assets, but I thought it is out of scope for this exercise.
