@@ -71,7 +71,3 @@ This is very basic feature-wise, a few things that could be added to consider th
 - Searching in the left bar. API does not support searches, I saw Messari uses GraphQL for searching assets, but I thought it is out of scope for this exercise.
 - Responsiveness: I made this desktop-only for simplicity.
 - Better Metrics display: Only showed a few metrics, and they are in a modal (probably not good if user needs to access some data quickly)
-
-## Production Deployment
-
-As stated above, some items should be moved to ENV vars. Besides that, this should be ready to be deployed.
