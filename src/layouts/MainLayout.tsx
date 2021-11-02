@@ -7,11 +7,11 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import AssetSearch from 'src/components/shared/AssetSearch';
 import AssetList from 'src/components/shared/AssetList';
+import PageLinearLoader from 'src/components/shared/PageLinearLoader';
 
 import AppBar from './mainLayout/AppBar';
 import Drawer from './mainLayout/Drawer';
 import DrawerHeader from './mainLayout/DrawerHeader';
-import PageLinearLoader from 'src/components/shared/PageLinearLoader';
 
 type Props = {
   children: React.ReactNode;
@@ -64,13 +64,19 @@ export default function MainLayout({ children }: Props) {
         <Divider />
         <AssetList />
       </Drawer>
-      <Box component="main" sx={{ height: '100vh', width: '100%' }}>
+      <Box
+        component="main"
+        sx={{
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         <DrawerHeader />
-        <Box component="main" sx={{ height: '100%', position: 'relative' }}>
+        <Box sx={{ position: 'relative', flexGrow: 1 }}>
           <PageLinearLoader />
-          <Box component="main" sx={{ height: '100%', p: 2 }}>
-            {children}
-          </Box>
+          <Box sx={{ p: 2, height: '100%' }}>{children}</Box>
         </Box>
       </Box>
     </Box>
