@@ -30,7 +30,14 @@ const getAssetMetricsPriceTimeSeries = (id: string) =>
   );
 
 export type AssetInfo = {
-  metrics: components['schemas']['AssetMetrics'];
+  // Add marketcap types that were not generated since they are not in open api def!
+  metrics: components['schemas']['AssetMetrics'] & {
+    marketcap?: {
+      current_marketcap_usd: number;
+      y_plus10_marketcap_usd: number;
+      y_2050_marketcap_usd: number;
+    };
+  };
   priceTimeSeries: Array<Array<number>>;
 };
 export const getAsset = (id: string) =>
@@ -40,7 +47,7 @@ export const getAsset = (id: string) =>
     } else {
       Promise.all([getAssetMetrics(id), getAssetMetricsPriceTimeSeries(id)])
         .then((values) => {
-          const asset = {
+          const asset: AssetInfo = {
             metrics: values[0].data?.data || {},
             priceTimeSeries: values[1].data?.data?.values || [],
           };

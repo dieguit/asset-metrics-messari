@@ -6,7 +6,6 @@ import ThemeProvider from 'src/theme/themeProvider';
 import createEmotionCache from 'src/theme/emotionCache';
 import MainLayout from 'src/layouts/MainLayout';
 import React from 'react';
-import ProgressBar from 'src/components/shared/ProgressBar';
 
 const queryClient = new QueryClient();
 

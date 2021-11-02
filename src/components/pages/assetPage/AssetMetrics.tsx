@@ -32,7 +32,9 @@ const AssetMetrics = ({ metrics }: Props) => {
   const y250Marketcap =
     metrics.marketcap?.y_2050_marketcap_usd?.toFixed(2) || '';
   const ath = metrics.all_time_high?.price?.toFixed(2) || '';
-  const athDate = new Date(metrics.all_time_high?.at);
+  const athDate = metrics.all_time_high?.at
+    ? new Date(metrics.all_time_high.at)
+    : null;
 
   return (
     <>
